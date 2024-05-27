@@ -16,7 +16,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/motorola/guamp
+DEVICE_PATH := device/motorola/cebu
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := bengal
@@ -66,8 +66,11 @@ BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 \
 			video=vfb:640x400,bpp=32,memsize=3072000 \
 			msm_rtb.filter=0x237\
 			service_locator.enable=1 \
-			loop.maxpart=7 \
+			loop.max_part=7 \
 			swiotlb=2048 \
+			androidboot.hab.csv=13 \
+			androidboot.hab.product=cebu \
+			androidboot.hab.cid=50 \
 			firmware_class.path=/vendor/firmware_mnt/image
 # For the love of all that is holy, please do not include this in your ROM unless you really want TWRP to not work correctly!
 BOARD_KERNEL_CMDLINE += androidboot.fastboot=1
@@ -102,7 +105,7 @@ BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
 # File systems
 BOARD_BOOTIMAGE_PARTITION_SIZE := 100663296
 BOARD_DTBOIMG_PARTITION_SIZE := 25165824
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 104857600
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 50616843776
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
 BOARD_SYSTEMIMAGE_PARTITION_TYPE := ext4
@@ -231,6 +234,21 @@ TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 TARGET_COPY_OUT_VENDOR := vendor
 TARGET_COPY_OUT_PRODUCT := product
 BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
+
+# Kernel module loading
+TW_LOAD_VENDOR_MODULES := "exfat.ko \
+			fpc1020_mmi.ko \
+			ktd3136_bl.ko \
+			leds_aw99703.ko \
+			mmi_annotate.ko \
+			mmi_info.ko \
+			mmi_sys_temp.ko \
+			moto_f_usbnet.ko \
+			nova_0flash_mmi.ko \
+			qpnp_adaptive_charge.ko \
+			qpnp-power-on-mmi.ko \
+			sensors_class.ko \
+			utags.ko"
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
