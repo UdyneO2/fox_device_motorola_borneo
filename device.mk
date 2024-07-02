@@ -28,7 +28,7 @@ PRODUCT_PLATFORM := bengal
 # A/B support
 AB_OTA_UPDATER := true
 
-LOCAL_PATH := device/motorola/cebu
+LOCAL_PATH := device/motorola/borneo
 
 # A/B
 AB_OTA_PARTITIONS += \
@@ -107,18 +107,24 @@ PRODUCT_EXTRA_RECOVERY_KEYS += \
 
 # Copy modules for depmod
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/recovery/root/vendor/lib/modules/1.1/chipone_tddi_mmi.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1/chipone_tddi_mmi.ko \
-    $(LOCAL_PATH)/recovery/root/vendor/lib/modules/1.1/focaltech_0flash_mmi.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1/focaltech_0flash_mmi.ko \
+    $(LOCAL_PATH)/recovery/root/vendor/lib/modules/1.1/abov_sar_mmi_overlay.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1/abov_sar_mmi_overlay.ko \
+    $(LOCAL_PATH)/recovery/root/vendor/lib/modules/1.1/ets_fps_mmi.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1/ets_fps_mmi.ko \
     $(LOCAL_PATH)/recovery/root/vendor/lib/modules/1.1/exfat.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1/exfat.ko \
+    $(LOCAL_PATH)/recovery/root/vendor/lib/modules/1.1/focaltech_0flash_mmi.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1/focaltech_0flash_mmi.ko \
     $(LOCAL_PATH)/recovery/root/vendor/lib/modules/1.1/fpc1020_mmi.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1/fpc1020_mmi.ko \
-    $(LOCAL_PATH)/recovery/root/vendor/lib/modules/1.1/ktd3136_bl.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1/ktd3136_bl.ko \
+    $(LOCAL_PATH)/recovery/root/vendor/lib/modules/1.1/ilitek_0flash_mmi.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1/ilitek_0flash_mmi.ko \
     $(LOCAL_PATH)/recovery/root/vendor/lib/modules/1.1/leds_aw99703.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1/leds_aw99703.ko \
+    $(LOCAL_PATH)/recovery/root/vendor/lib/modules/1.1/leds_lm3697.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1/leds_lm3697.ko \
+    $(LOCAL_PATH)/recovery/root/vendor/lib/modules/1.1/mcDrvModule.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1/mcDrvModule.ko \
     $(LOCAL_PATH)/recovery/root/vendor/lib/modules/1.1/mmi_annotate.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1/mmi_annotate.ko \
     $(LOCAL_PATH)/recovery/root/vendor/lib/modules/1.1/mmi_info.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1/mmi_info.ko \
     $(LOCAL_PATH)/recovery/root/vendor/lib/modules/1.1/mmi_sys_temp.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1/mmi_sys_temp.ko \
     $(LOCAL_PATH)/recovery/root/vendor/lib/modules/1.1/moto_f_usbnet.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1/moto_f_usbnet.ko \
     $(LOCAL_PATH)/recovery/root/vendor/lib/modules/1.1/nova_0flash_mmi.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1/nova_0flash_mmi.ko \
     $(LOCAL_PATH)/recovery/root/vendor/lib/modules/1.1/qpnp_adaptive_charge.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1/qpnp_adaptive_charge.ko \
-    $(LOCAL_PATH)/recovery/root/vendor/lib/modules/1.1/qpnp-power-on-mmi.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1/qpnp-power-on-mmi.ko \
     $(LOCAL_PATH)/recovery/root/vendor/lib/modules/1.1/sensors_class.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1/sensors_class.ko \
-    $(LOCAL_PATH)/recovery/root/vendor/lib/modules/1.1/utags.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1/utags.ko
+    $(LOCAL_PATH)/recovery/root/vendor/lib/modules/1.1/tps61280.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1/tps61280.ko \
+    $(LOCAL_PATH)/recovery/root/vendor/lib/modules/1.1/tzlog_dump.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1/tzlog_dump.ko \
+    $(LOCAL_PATH)/recovery/root/vendor/lib/modules/1.1/utags.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1/utags.ko \
+    $(LOCAL_PATH)/recovery/root/vendor/lib/modules/1.1/watchdog_cpu_ctx.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1/watchdog_cpu_ctx.ko \
+    $(LOCAL_PATH)/recovery/root/vendor/lib/modules/1.1/watchdogtest.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1/watchdogtest.ko

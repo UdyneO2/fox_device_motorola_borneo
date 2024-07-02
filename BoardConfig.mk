@@ -16,7 +16,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/motorola/cebu
+DEVICE_PATH := device/motorola/borneo
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := bengal
@@ -68,8 +68,8 @@ BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 \
 			service_locator.enable=1 \
 			loop.max_part=7 \
 			swiotlb=2048 \
-			androidboot.hab.csv=13 \
-			androidboot.hab.product=cebu \
+			androidboot.hab.csv=21 \
+			androidboot.hab.product=borneo \
 			androidboot.hab.cid=50 \
 			firmware_class.path=/vendor/firmware_mnt/image
 # For the love of all that is holy, please do not include this in your ROM unless you really want TWRP to not work correctly!
@@ -105,8 +105,8 @@ BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
 # File systems
 BOARD_BOOTIMAGE_PARTITION_SIZE := 100663296
 BOARD_DTBOIMG_PARTITION_SIZE := 25165824
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 50616843776
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 102400000
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 48937967000
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
 BOARD_SYSTEMIMAGE_PARTITION_TYPE := ext4
 BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -120,11 +120,11 @@ BOARD_USES_RECOVERY_AS_BOOT := false
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
 
 # Super
-BOARD_SUPER_PARTITION_SIZE := 9763291136
+BOARD_SUPER_PARTITION_SIZE := 10027008000
 BOARD_SUPER_PARTITION_GROUPS := mot_dynamic_partitions
 
 # DYNAMIC_PARTITIONS_SIZE = (SUPER_PARTITION_SIZE / 2) - 4MB
-BOARD_MOT_DYNAMIC_PARTITIONS_SIZE := 4877451264
+BOARD_MOT_DYNAMIC_PARTITIONS_SIZE := 5009309696
 BOARD_MOT_DYNAMIC_PARTITIONS_PARTITION_LIST := \
     system \
     system_ext \
@@ -236,19 +236,27 @@ TARGET_COPY_OUT_PRODUCT := product
 BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
 
 # Kernel module loading
-TW_LOAD_VENDOR_MODULES := "exfat.ko \
+TW_LOAD_VENDOR_MODULES := "abov_sar_mmi_overlay.ko \
+			ets_fps_mmi.ko \
+			exfat.ko \
+			focaltech_0flash_mmi.ko \
 			fpc1020_mmi.ko \
-			ktd3136_bl.ko \
+			ilitek_0flash_mmi.ko \
 			leds_aw99703.ko \
+			leds_lm3697.ko \
+			mcDrvModule.ko \
 			mmi_annotate.ko \
 			mmi_info.ko \
 			mmi_sys_temp.ko \
 			moto_f_usbnet.ko \
 			nova_0flash_mmi.ko \
 			qpnp_adaptive_charge.ko \
-			qpnp-power-on-mmi.ko \
 			sensors_class.ko \
-			utags.ko"
+			tps61280.ko \
+			tzlog_dump.ko \
+			utags.ko \
+			watchdog_cpu_ctx.ko \
+			watchdogtest.ko"
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
